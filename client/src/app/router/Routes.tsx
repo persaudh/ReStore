@@ -1,6 +1,7 @@
 
 import { createBrowserRouter, Navigate } from "react-router-dom"
 import AboutPage from "../../features/about/AboutPage"
+import BasektPage from "../../features/basket/BasketPage/BasketPage"
 import Catalog from "../../features/catalog/Catalog"
 import ProductDetails from "../../features/catalog/ProductDetails"
 import ContactPage from "../../features/contact/ContactPage"
@@ -20,6 +21,7 @@ export const router = createBrowserRouter([
             {path: 'contact', element: <ContactPage />},
             {path: 'server-error', element: <ServerError />},
             {path: 'not-found', element: <NotFound />},
+            {path: 'basket', element: <BasektPage />},
             {path: '*', element: <Navigate replace to='/not-found' />},
         ]
     }
