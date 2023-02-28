@@ -6,7 +6,7 @@ import ListItem from "@mui/material/ListItem";
 import { Box } from "@mui/system";
 import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { useStoreContext } from "../api/context/StoreContext";
+import { useStoreContext } from "../context/StoreContext";
 
 const midLinks = [
     { title: 'catalog', path: '/catalog' },
@@ -72,7 +72,7 @@ export default function Header({ darkMode, handleThemeChange }: Props) {
                 </List>
 
                 <Box display="flex" alignItems="center">
-                    <IconButton component={Link} to='basket'  size='large' edge='start' color='inherit' sx={{ mr: 2 }}>
+                    <IconButton component={Link} to='/basket'  size='large' edge='start' color='inherit' sx={{ mr: 2 }}>
                         <Badge badgeContent={itemCount} color="secondary">
                             <ShoppingCart />
                         </Badge>
@@ -80,7 +80,8 @@ export default function Header({ darkMode, handleThemeChange }: Props) {
                     <List sx={{ display: 'flex' }} >
                         {rightLinks.map(({ title, path }) => (
                             <ListItem
-                                component={NavLink} to={path}
+                                component={NavLink}
+                                to={path}
                                 key={path}
                                 sx={navStyles}>
                                 {title.toUpperCase()}

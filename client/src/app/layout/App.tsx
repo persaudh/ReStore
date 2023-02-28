@@ -7,7 +7,7 @@ import { ToastContainer } from "react-toastify";
 import Catalog from "../../features/catalog/Catalog";
 import Header from "./Header";
 import 'react-toastify/dist/ReactToastify.css';
-import { useStoreContext } from "../api/context/StoreContext";
+import { useStoreContext } from "../context/StoreContext";
 import { getCookie } from "../util/util";
 import agent from "../api/agent";
 import LoadingComponents from "./LoadingComponents";
@@ -27,7 +27,7 @@ function App() {
   else{
     setLoading(false);
   }
-  })
+  }, [setBasket])
 
   const [darkMode, setDarkMode] = useState(false);
   const palettType = darkMode ? 'dark' : 'light';

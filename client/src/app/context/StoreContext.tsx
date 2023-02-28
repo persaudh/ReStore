@@ -1,5 +1,5 @@
 import { createContext, PropsWithChildren, useContext, useState } from "react";
-import { Basket } from "../../models/basket";
+import { Basket } from "../models/basket";
 
 interface StoreContextValue {
     basket: Basket | null;
@@ -10,11 +10,12 @@ interface StoreContextValue {
 export const StoreContext = createContext<StoreContextValue | undefined>(undefined);
 
 export function useStoreContext() {
-    const context = useContext(StoreContext);
+    let context = useContext(StoreContext);
 
-    if (context === undefined)
+    if (context === undefined){
         throw Error('Opps - we do new seen to be inside the provider');
-
+    }
+    
     return context;
 }
 
@@ -33,6 +34,7 @@ export function StoreProvider({ children }: PropsWithChildren<any>) {
             })
         }
     }
+    
     return(
         <StoreContext.Provider value={{basket, setBasket,removeItem}}>
             {children}
