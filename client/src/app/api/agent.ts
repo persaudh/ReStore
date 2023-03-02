@@ -47,7 +47,7 @@ const request = {
 }
 
 const Catalog = {
-    list: () => request.get('Products'),
+    list: () => request.get('products'),
     details: (id: number) => request.get(`Products/${id}`)
 }
 
